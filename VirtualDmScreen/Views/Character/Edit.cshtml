@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model VirtualDmScreen.Models.Character
+
+<h2>Edit</h2>
+
+<h4>Edit this Character: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.CharacterId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <br>
+
+  @Html.LabelFor(model => model.ImageUrl)
+  @Html.EditorFor(model => model.ImageUrl)
+  <br>
+
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>

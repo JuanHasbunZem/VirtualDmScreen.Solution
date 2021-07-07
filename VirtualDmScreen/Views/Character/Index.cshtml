@@ -1,0 +1,25 @@
+@{
+    Layout = "_Layout";
+}
+
+
+@* using VirtualDmScreen.Models.User ? *@
+@using VirtualDmScreen.Models;
+<h1>Welcome, @* @Html.DisplayNameFor(model => model.User) *@ !</h1>
+<h3>Here is your list of characters:</h3>
+
+@if (@Model.Count == 0)
+{
+  <h4> You don't currently have any created. </h4>
+}
+
+<ul>
+  @foreach(Character characters in Model)
+  {
+    <li>@Html.ActionLink($"{characters.Name}", "Details", new { id = characters.CharacterId })</li>
+  }
+</ul>
+
+<br>
+<p>@Html.ActionLink("Add a new character", "Create")</p><br>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>>
